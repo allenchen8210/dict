@@ -68,6 +68,14 @@ int main(int argc, char **argv)
     fclose(fp);
     printf("ternary_tree, loaded %d words in %.6f sec\n", idx, t2 - t1);
 
+    FILE *output;
+    output = fopen("ref.txt", "a");
+    if (output != NULL) {
+        fprintf(output, "%.6f\n", t2 - t1);
+        fclose(output);
+    } else
+        printf("open file error\n");
+
     for (;;) {
         char *p;
         printf(
