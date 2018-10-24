@@ -53,7 +53,9 @@ bench: $(TESTS)
 	@for test in $(TESTS); do\
 		./$$test --bench $(TEST_DATA); \
 	done
-
+plot:
+	gnuplot scripts/runtime3.gp
+	eog  runtime3.png
 clean:
 	$(RM) $(TESTS) $(OBJS)
 	$(RM) $(deps)

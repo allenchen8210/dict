@@ -69,6 +69,14 @@ int main(int argc, char **argv)
     printf("bloom filter build success\n");
     printf("ternary_tree, loaded %d words in %.6f sec\n", idx, t2 - t1);
 
+
+    if (argc == 2 && strcmp(argv[1], "--bench") == 0) {
+        int stat = bench_test(root, BENCH_TEST_FILE, LMAX);
+        tst_free_all(root);
+        return stat;
+    }
+
+
     FILE *output;
     output = fopen("ref.txt", "a");
     if (output != NULL) {
