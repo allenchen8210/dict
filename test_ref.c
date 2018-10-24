@@ -66,6 +66,7 @@ int main(int argc, char **argv)
     }
     t2 = tvgetf();
     fclose(fp);
+    printf("bloom filter build success\n");
     printf("ternary_tree, loaded %d words in %.6f sec\n", idx, t2 - t1);
 
     FILE *output;
@@ -74,7 +75,7 @@ int main(int argc, char **argv)
         fprintf(output, "%.6f\n", t2 - t1);
         fclose(output);
     } else
-        printf("open file error\n");
+        printf("open file ref.txt error\n");
 
     for (;;) {
         char *p;
